@@ -4,7 +4,7 @@ export const getOrderUrl = `${host}/getorder`
 export const deployUrl = `${host}/inscribe/brc20/deploy`
 export const mintUrl = `${host}/inscribe/brc20/mint`
 export const transfer = `${host}/inscribe/brc20/transfer`
-export const textInscribeUrl = `${host}/inscribe/text`
+export const textInscribeUrl = `${host}/textinscribe`
 
 
 export const ORDINAL_TYPE_TEXT = 0

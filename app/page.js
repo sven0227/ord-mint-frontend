@@ -117,10 +117,10 @@ export default function Home () {
       const txid = await window.unisat.sendBitcoin(vaultAddress, fee)
       const body = {
         txid: txid,
-        fee_rate: 1,
-        inscription_text: text,
-        btc_sender_address: address,
-        inscription_receiver_address: receiverAddress
+        feeRate: 1,
+        text: text,
+        payAddress: address,
+        receiveAddress: receiverAddress
       }
       console.log('handleInscribeText body :>> ', body)
       const { data } = await axios.post(textInscribeUrl, body)
