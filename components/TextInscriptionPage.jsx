@@ -22,7 +22,6 @@ export default function MintPage ({ orderList, handleInscribeText }) {
           <input
             className='form-control'
             type='text'
-            maxLength={4}
             value={text}
             onChange={e => setText(e.target.value)}
           />
