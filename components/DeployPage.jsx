@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 
 export default function DeployPage ({ connected, orderList, handleDeploy }) {
   const [tick, setTick] = useState('')
-  const [maxSupply, setMaxSupply] = useState(0)
+  const [maxSupply, setMaxSupply] = useState(21000)
 
   const deployOrder = useMemo(() => {
     const sorted = orderList.filter(
@@ -15,7 +15,7 @@ export default function DeployPage ({ connected, orderList, handleDeploy }) {
   return (
     <div className='flex flex-col p-2'>
       <div className='p-2'>
-        <h1>Deploye</h1>
+        <h1>Deploy</h1>
       </div>
       <section className='flex flex-col p-2'>
         <div className='mb-2'>
@@ -44,14 +44,24 @@ export default function DeployPage ({ connected, orderList, handleDeploy }) {
         >
           Deploy
         </button>
-        {deployOrder.map((order, index) => (
-          <div key={index}>
-            <span>{index + 1}</span>{': '}<span>{order.token_tick}</span>,
-            <span>{order.max_supply}</span>
-            {'=>'}
-            <span>{order.description}</span>
-          </div>
-        ))}
+        <div className='mt-2'>
+          {deployOrder.map((order, index) => (
+            <div key={index}>
+              <span>{index + 1}</span>
+              {': '}
+              <a
+                href={`https://mempool.space/testnet/tx/${order.ordinal?.reveal}`}
+                target='_blank'
+              >
+                <span>{order.token_tick}</span>
+                {', '}
+                <span>{order.max_supply}</span>
+              </a>
+              {' => '}
+              <span>{order.description}</span>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   )
